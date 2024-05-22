@@ -17,24 +17,25 @@ use App\Http\Controllers\CursoController;
 
 Route::get('/', HomeController::class);
 
-Route::get('cursos',[CursoController::class, 'index'])->name('cursos.index');
-//para establecer una ruta
+Route::resource('cursos', CursoController::class);
+
+
+/*Route::get('cursos',[CursoController::class, 'index'])->name('cursos.index');//para establecer una ruta
+
 Route::get('cursos/create', [CursoController::class, 'create'])->name('cursos.create');
 
-Route::post('cursos', [CursoController::class, 'store'])->name('cursos.store');
-//ruta *post* para enviar datos desde formulario de manera oculta sin enviarlos por url
+Route::post('cursos', [CursoController::class, 'store'])->name('cursos.store');//ruta *post* para enviar datos desde formulario de manera oculta sin enviarlos por url
 
-Route::get('cursos/{curso}', [CursoController::class, 'show'])->name('cursos.show');
-//para establecer una ruta por url con medio de una variable*/
+Route::get('cursos/{curso}', [CursoController::class, 'show'])->name('cursos.show');//para establecer una ruta por url con medio de una variable
 
 Route::get('cursos/{curso}/edit', [CursoController::class, 'edit'])->name('cursos.edit');
 
 Route::put('cursos/{curso}', [CursoController::class, 'update'])->name('cursos.update');
 
-/*Route::controller(CursoController::class)->group(function(){
+Route::delete('curso/{curso}', [CursoController::class, 'destroy'])->name('cursos.destroy');
+
+Route::controller(CursoController::class)->group(function(){
     Route::get('cursos', 'index');
     Route::get('cursos/create', 'create');
     Route::get('cursos/{curso}','show');
-});*/
-
-Route::delete('curso/{curso}', [CursoController::class, 'destroy'])->name('cursos.destroy');
+//});*/
