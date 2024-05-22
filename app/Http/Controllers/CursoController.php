@@ -22,15 +22,18 @@ class CursoController extends Controller
 
         
         
-        $curso = new Curso();
+        /*$curso = new Curso();
 
         $curso->name = $request->name;
         $curso->descripcion = $request->descripcion;
         $curso->categoria = $request->categoria;
 
-        $curso->save();
+        $curso->save();*/
+
+        $curso = Curso::create($request->all());
 
         return redirect()->route('cursos.show',$curso);
+
     }
 
     public function show(Curso $curso){
@@ -53,11 +56,7 @@ class CursoController extends Controller
         
         ]);
         
-        $curso->name = $request->name;
-        $curso->descripcion = $request->descripcion;
-        $curso->categoria = $request->categoria;
-
-        $curso->save();
+        $curso->update($request->all());
 
         return redirect()->route('cursos.show',$curso);                            
     }
