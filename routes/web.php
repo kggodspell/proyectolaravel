@@ -36,3 +36,5 @@ Route::put('cursos/{curso}', [CursoController::class, 'update'])->name('cursos.u
     Route::get('cursos/create', 'create');
     Route::get('cursos/{curso}','show');
 });*/
+
+Route::delete('curso/{curso}', [CursoController::class, 'destroy'])->name('cursos.destroy');
