@@ -17,6 +17,17 @@
             <span>*{{$message}}</span>
         @enderror
         <br>
+
+                    <label>
+                        Slug:
+                        <br>
+                        <input type="text" name="slug" value="{{old('slug')}}">
+                    </label>
+                    <br>
+                    @error('slug')
+                        <span>*{{$message}}</span>
+                    @enderror
+                    <br>
         <label>
             Descripción:
             <br>
